@@ -201,3 +201,116 @@
   });
 
 })(jQuery);
+
+
+// Event Calender
+
+document.addEventListener('DOMContentLoaded', function() {
+  let events = [
+      { date: '2024-05-15', title: 'Conference', image: 'assets/img/r4.jpg' },
+      { date: '2024-05-22', title: 'Workshop', image: 'assets/img/r4.jpg' }
+  ];
+
+  const now = new Date();
+  let currentMonth = now.getMonth();
+  let currentYear = now.getFullYear();
+
+  const monthDisplay = document.querySelector('.month-display');
+  const calendarBody = document.querySelector('.calendar-body');
+  const prevMonthButton = document.querySelector('.previous-month');
+  const nextMonthButton = document.querySelector('.next-month');
+
+  function loadMonth(month, year) {
+      const firstDay = new Date(year, month).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      monthDisplay.textContent = `${now.toLocaleString('default', { month: 'long' })} ${year}`;
+      calendarBody.innerHTML = '';
+
+      let date = 1;
+      for (let row = 0; row < 6; row++) {
+          const tr = document.createElement('tr');
+          for (let col = 0; col < 7; col++) {
+              const td = document.createElement('td');
+              if (row === 0 && col < firstDay || date > daysInMonth) {
+                  td.textContent = '';
+              } else {
+                  td.textContent = date;
+                  const eventDay = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+                  const eventForDay = events.find(e => e.date === eventDay);
+                  if (eventForDay) {
+                      const eventDiv = document.createElement('div');
+                      eventDiv.textContent = eventForDay.title;
+                      eventDiv.classList.add('event');
+                      eventDiv.onclick = () => showImage(eventForDay.image);
+                      td.appendChild(eventDiv);
+                  }
+                  date++;
+              }
+              tr.appendChild(td);
+          }
+          calendarBody.appendChild(tr);
+      }
+  }
+
+  function showImage(imageSrc) {
+    // Check if a modal already exists; if not, create it
+    let modal = document.getElementById('image-modal');
+    if (!modal) {
+        // Create the modal div and set its attributes
+        modal = document.createElement('div');
+        modal.id = 'image-modal';
+        modal.style.position = 'fixed';
+        modal.style.left = '0';
+        modal.style.top = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        modal.style.display = 'flex';
+        modal.style.justifyContent = 'center';
+        modal.style.alignItems = 'center';
+        modal.style.zIndex = '1000';
+
+        // Create the image element
+        const img = document.createElement('img');
+        img.id = 'modal-image';
+        img.style.maxWidth = '90%';
+        img.style.maxHeight = '90%';
+        modal.appendChild(img);
+
+        // Add an event listener to close the modal when clicked
+        modal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        document.body.appendChild(modal);
+    }
+
+    // Set the source of the image and display the modal
+    const img = document.getElementById('modal-image');
+    img.src = imageSrc;
+    modal.style.display = 'flex';
+}
+
+  loadMonth(currentMonth, currentYear);
+
+  prevMonthButton.addEventListener('click', () => {
+      currentMonth--;
+      if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+      }
+      loadMonth(currentMonth, currentYear);
+  });
+
+  nextMonthButton.addEventListener('click', () => {
+      currentMonth++;
+      if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+      }
+      loadMonth(currentMonth, currentYear);
+  });
+});
+
+// End  Event Calender

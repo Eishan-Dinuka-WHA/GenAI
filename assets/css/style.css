@@ -137,10 +137,12 @@ h1, h2, h3, h4, h5, h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Desktop Navigation */
+
 .nav-menu ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  
 }
 
 .nav-menu > ul {
@@ -150,6 +152,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu > ul > li {
   position: relative;
   white-space: nowrap;
+  text-decoration: none; 
   padding: 10px 0 10px 28px;
 }
 
@@ -162,6 +165,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.5px;
   font-weight: 500;
   font-family: "Open Sans", sans-serif;
+  text-decoration: none; 
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
@@ -1651,6 +1655,66 @@ section {
     margin-top: 30px;
   }
 }
+
+
+
+/*.....................Event Calender ..................*/
+
+#image-modal img {
+  border-radius: 10px; /* Optional: for styled corners */
+  transition: transform 0.2s; /* Animation for zoom effect */
+}
+
+#image-modal img:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.calendar header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.calendar th {
+    background-color: #007bff;
+    color: white;
+}
+
+.calendar td {
+    height: 100px;
+}
+
+.calendar td:not(.active-month) {
+    background-color: #f8f9fa;
+}
+
+.calendar td.active-month:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.event {
+  margin-top: 5px;
+  padding: 2px 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 0.8em;
+  border-radius: 5px;
+}
+
+.event {
+  margin-top: 5px;
+  padding: 2px 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 0.8em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+/*......................................*/
 
 /*--------------------------------------------------------------
 # Footer
