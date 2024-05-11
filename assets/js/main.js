@@ -207,8 +207,16 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   let events = [
-      { date: '2024-05-15', title: 'Conference', image: 'assets/img/r4.jpg' },
-      { date: '2024-05-22', title: 'Workshop', image: 'assets/img/r4.jpg' }
+      // { date: '2024-05-16', title: 'Workshop', image: 'assets/img/r4.jpg' },
+      {
+        date: '2024-05-16',
+        title: 'Pre register to the Workshop',
+       // image: 'assets/img/r4.jpg',
+        url: 'https://us02web.zoom.us/meeting/register/tZAqceGoqjIsH9F5OmrizbBkoNB2BXPSeWEr' // Add the URL here
+     },
+      // { date: '2024-05-22', title: 'Workshop', image: 'assets/img/r4.jpg' }
+      
+      
   ];
 
   const now = new Date();
@@ -221,37 +229,43 @@ document.addEventListener('DOMContentLoaded', function() {
   const nextMonthButton = document.querySelector('.next-month');
 
   function loadMonth(month, year) {
-      const firstDay = new Date(year, month).getDay();
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const firstDay = new Date(year, month).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-      monthDisplay.textContent = `${now.toLocaleString('default', { month: 'long' })} ${year}`;
-      calendarBody.innerHTML = '';
+    monthDisplay.textContent = `${now.toLocaleString('default', { month: 'long' })} ${year}`;
+    calendarBody.innerHTML = '';
 
-      let date = 1;
-      for (let row = 0; row < 6; row++) {
-          const tr = document.createElement('tr');
-          for (let col = 0; col < 7; col++) {
-              const td = document.createElement('td');
-              if (row === 0 && col < firstDay || date > daysInMonth) {
-                  td.textContent = '';
-              } else {
-                  td.textContent = date;
-                  const eventDay = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
-                  const eventForDay = events.find(e => e.date === eventDay);
-                  if (eventForDay) {
-                      const eventDiv = document.createElement('div');
-                      eventDiv.textContent = eventForDay.title;
-                      eventDiv.classList.add('event');
-                      eventDiv.onclick = () => showImage(eventForDay.image);
-                      td.appendChild(eventDiv);
-                  }
-                  date++;
-              }
-              tr.appendChild(td);
-          }
-          calendarBody.appendChild(tr);
-      }
-  }
+    let date = 1;
+    for (let row = 0; row < 6; row++) {
+        const tr = document.createElement('tr');
+        for (let col = 0; col < 7; col++) {
+            const td = document.createElement('td');
+            if (row === 0 && col < firstDay || date > daysInMonth) {
+                td.textContent = '';
+            } else {
+                td.textContent = date;
+                const eventDay = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+                const eventForDay = events.find(e => e.date === eventDay);
+                if (eventForDay) {
+                    const eventDiv = document.createElement('div');
+                    eventDiv.classList.add('event');
+
+                    const eventLink = document.createElement('a');
+                    eventLink.href = eventForDay.url; // Use the URL from the event data
+                    eventLink.textContent = eventForDay.title;
+                    eventLink.classList.add('event-link');
+                    eventDiv.appendChild(eventLink);
+
+                    eventDiv.onclick = () => showImage(eventForDay.image);
+                    td.appendChild(eventDiv);
+                }
+                date++;
+            }
+            tr.appendChild(td);
+        }
+        calendarBody.appendChild(tr);
+    }
+}
 
   function showImage(imageSrc) {
     // Check if a modal already exists; if not, create it

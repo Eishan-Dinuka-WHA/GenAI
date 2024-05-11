@@ -1697,20 +1697,13 @@ section {
 .event {
   margin-top: 5px;
   padding: 2px 5px;
-  background-color: #007bff;
-  color: white;
+  background-color: #ff0000;
+  color: rgb(0, 0, 0);
   font-size: 0.8em;
-  border-radius: 5px;
-}
-
-.event {
-  margin-top: 5px;
-  padding: 2px 5px;
-  background-color: #007bff;
-  color: white;
-  font-size: 0.8em;
-  border-radius: 5px;
+  border-radius: 1px;
   cursor: pointer;
+  font-size: large;
+  
 }
 
 
