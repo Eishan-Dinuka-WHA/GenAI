@@ -207,14 +207,20 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   let events = [
-      // { date: '2024-05-16', title: 'Workshop', image: 'assets/img/r4.jpg' },
+    
       {
-        date: '2024-05-16',
-        title: 'Pre register to the Workshop',
+        date: '2024-05-17',
+        title: 'GenAI in Education : Opportunities and Challenges',
        // image: 'assets/img/r4.jpg',
         url: 'https://us02web.zoom.us/meeting/register/tZAqceGoqjIsH9F5OmrizbBkoNB2BXPSeWEr' // Add the URL here
      },
-      // { date: '2024-05-22', title: 'Workshop', image: 'assets/img/r4.jpg' }
+  //    {
+  //     date: '2024-05-16',
+  //     title: 'Pre register to the Workshop',
+  //    // image: 'assets/img/r4.jpg',
+  //     url: 'https://us02web.zoom.us/meeting/register/tZAqceGoqjIsH9F5OmrizbBkoNB2BXPSeWEr' // Add the URL here
+  //  },
+    // Add the event in here
       
       
   ];
