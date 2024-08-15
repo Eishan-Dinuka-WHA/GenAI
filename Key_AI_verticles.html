@@ -33,14 +33,17 @@
     />
     <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
 
-    <!-- For the event calender -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: Arsha - v2.1.0
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-173908477-1"
@@ -54,6 +57,61 @@
 
       gtag("config", "UA-173908477-1");
     </script>
+
+    <!--    -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 90%;
+        margin: auto;
+        overflow: hidden;
+      }
+      header {
+        background: #50b3a2;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0;
+      }
+      .cards {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 100px;
+      }
+      .card img {
+        width: 100%;
+        border-radius: 5px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        padding: 20px;
+        text-align: center;
+        transition: 0.3s;
+        width: 30%;
+        cursor: pointer;
+      }
+      .card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+    <script>
+      function navigateTo(page) {
+        window.location.href = page + ".html";
+      }
+    </script>
+
+    <!--     -->
   </head>
 
   <body>
@@ -72,11 +130,11 @@
             <li><a href="aboutus.html">About Us</a></li>
             <li><a href="team.html">Team</a></li>
             <li><a href="project.html">Projects</a></li>
-            <li><a href="Key_AI_verticles.html">Key AI verticles</a></li>
+            <li><a href="outreach.html">Outreach</a></li>
             <li><a href="grants.html">Grants</a></li>
             <li><a href="index.html#publications">Publications</a></li>
             <li><a href="index.html#research">Research</a></li>
-            <li><a href="PartnerWithus.html">PartnerWithUs</a></li>
+            <li><a href="PartnerWithus.html">Partner with us</a></li>
             <li><a href="Event.html">Event</a></li>
           </ul>
         </nav>
@@ -85,56 +143,26 @@
     </header>
     <!-- End Header -->
 
-    <main id="main">
-      <!-- ======= Breadcrumbs ======= -->
-      <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Events</li>
-          </ol>
-          <h2>Events</h2>
+    <div class="container">
+      <div class="cards">
+        <div class="card" onclick="navigateTo('agriculture')">
+          <img src="assets/img/Agriculture.jpg" alt="Agriculture" />
+          <h2>Agriculture</h2>
         </div>
-      </section>
-
-      <!-- End Breadcrumbs -->
-
-      <div class="container mt-5">
-        <!-- Event input form -->
-
-        <!-- <div class="add-event-form mb-4">
-            <input type="text" id="event-title" placeholder="Event Title" class="form-control">
-            <input type="date" id="event-date" class="form-control">
-            <button class="btn btn-success" onclick="addEvent()">Add Event</button>
-        </div> -->
-
-        <!-- Calendar display -->
-        <div class="calendar">
-          <header>
-            <h2 class="month-display"></h2>
-            <div class="navigation">
-              <button class="btn btn-primary previous-month">Prev</button>
-              <button class="btn btn-primary next-month">Next</button>
-            </div>
-          </header>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Sun</th>
-                <th>Mon</th>
-                <th>Tue</th>
-                <th>Wed</th>
-                <th>Thu</th>
-                <th>Fri</th>
-                <th>Sat</th>
-              </tr>
-            </thead>
-            <tbody class="calendar-body"></tbody>
-          </table>
+        <div class="card" onclick="navigateTo('education')">
+          <img src="assets/img/Agriculture.jpg" alt="Education" />
+          <h2>Education</h2>
+        </div>
+        <div class="card" onclick="navigateTo('health')">
+          <img src="assets/img/Agriculture.jpg" alt="Health" />
+          <h2>Health</h2>
+        </div>
+        <div class="card" onclick="navigateTo('fintech')">
+          <img src="assets/img/Agriculture.jpg" alt="FinTech" />
+          <h2>FinTech</h2>
         </div>
       </div>
-    </main>
-    <!-- End #main -->
+    </div>
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -149,7 +177,12 @@
           &copy; Copyright <strong><span>SLIIT GenAI Group</span></strong
           >. All Rights Reserved
         </div>
-        <div class="credits"></div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+        </div>
       </div>
     </footer>
     <!-- End Footer -->
